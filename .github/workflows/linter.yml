@@ -34,3 +34,30 @@ try:
 except ValueError:
     print("Bitte geben Sie eine gültige Ganzzahl für Ihr Alter ein.")}
 }
+# Um die Robustheit des Programms zu erhöhen und es gegen fehlerhafte Benutzereingaben widerstandsfähiger zu machen, können wir eine Fehlerbehandlung hinzufügen. Dies wird durch die Verwendung einer `try-except`-Struktur erreicht, die es uns ermöglicht, Fehler abzufangen, die auftreten können, wenn der Benutzer keine gültigen Ganzzahlen eingibt. Hier ist, wie Sie den Code erweitern können, um diese Funktionalität zu implementieren:
+
+```python
+def sicher_eingabe_erhalten(prompt):
+    while True:
+        try:
+            # Versuche, die Benutzereingabe als Ganzzahl zu konvertieren
+            eingabe = int(input(prompt))
+            return eingabe
+        except ValueError:
+            # Wenn ein Fehler auftritt, informiere den Benutzer und bitte um erneute Eingabe
+            print("Das war keine gültige Zahl. Bitte versuchen Sie es erneut.")
+
+# Erfassung von zwei Zahlen vom Benutzer mit Fehlerbehandlung
+zahl1 = sicher_eingabe_erhalten("Bitte geben Sie die erste Zahl ein: ")
+zahl2 = sicher_eingabe_erhalten("Bitte geben Sie die zweite Zahl ein: ")
+
+# Berechnung der Summe der beiden Zahlen
+summe = zahl1 + zahl2
+
+# Ausgabe der berechneten Summe
+print(f"Die Summe der beiden Zahlen ist: {summe}")
+```
+
+In diesem erweiterten Code haben wir eine Funktion `sicher_eingabe_erhalten` definiert, die eine Schleife (`while True`) verwendet, um den Benutzer wiederholt nach einer Eingabe zu fragen, bis eine gültige Ganzzahl eingegeben wird. Die Funktion verwendet `try-except` um zu versuchen, die Eingabe in eine Ganzzahl umzuwandeln (`int(input(prompt))`). Wenn dies erfolgreich ist, wird die Zahl zurückgegeben und die Schleife beendet. Wenn ein `ValueError` auftritt (was bedeutet, dass die Eingabe keine gültige Ganzzahl war), wird eine Fehlermeldung ausgegeben und die Schleife läuft weiter, um eine neue Eingabe zu erbitten.
+
+Diese Anpassung macht Ihr Programm benutzerfreundlicher und verhindert, dass es durch fehlerhafte Eingaben unerwartet beendet wird.
