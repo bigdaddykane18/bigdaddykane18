@@ -30,7 +30,7 @@ jobs:
 {
 try:
     age = int(input("Bitte geben Sie Ihr Alter ein: "))
-    print(f"Ihr Alter ist: {20}")
+    print(f"Ihr Alter ist: {36}")
 except ValueError:
     print("Bitte geben Sie eine gültige Ganzzahl für Ihr Alter ein.")}
 }
